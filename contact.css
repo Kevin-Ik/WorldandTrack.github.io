@@ -1,0 +1,655 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Martel Sans', sans-serif;
+    text-align: center;
+     
+}
+/* --------------- Fin des Paramètres de bases CSS */
+/*----------------------------------------------------------------------------------*/
+
+
+/* ----------Partie navigation fichier navBar.js  -----------*/
+nav {
+    font-family: 'Martel Sans', sans-serif;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.67);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: .6s ease;
+    z-index: 2;
+}
+
+
+ h1 {
+    font-family: 'Play', sans-serif;
+    margin-left: 20px;
+    letter-spacing: 2px;
+    color: white;
+    display: none;
+    text-shadow:  0 0 1px black,
+    0 0 2px black;;
+}
+
+h1 span{
+    color: red;
+    font-size: 2rem;
+    text-shadow: 0 0 1px black,
+    0 0 2px black;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    margin-left: 40px;
+}
+
+/* ------------------Lien de Navigation (Acceuil, Resevation, contact, about us, se connecter) -------------*/
+.navBar {
+    width: 100%;
+    /* margin-top: 10px; */
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.navBar ul {
+    width: 700px;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-right: 40px;
+    
+}
+
+.navBar ul li {
+    /* margin-right: 20px; */
+    padding-top: 6px;
+    color: white;
+    text-align: center;
+}
+
+
+.navBar ul li a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.777);
+    transition: .4s ease;
+
+}
+
+.navBar ul .li5 a{
+    color: white;
+    font-weight: bold;
+}
+
+.ligne a::after {
+    content : '';
+    position: absolute;
+    display: block;
+    width: 0;
+    top: 50px;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    transition: .4s ease;
+}
+
+.ligne:nth-child(1) a:hover::after {
+    width: 35px;
+}
+
+.ligne:nth-child(2) a:hover::after {
+    width: 50px;
+}
+
+.ligne:nth-child(3) a:hover::after {
+    width: 40px;
+}
+
+.ligne:nth-child(4) a:hover::after {
+    width: 45px;
+}
+
+
+.ligne a:hover {
+    color: rgb(255, 255, 255);
+}
+
+.li5 a::after {
+    content : '';
+    position: absolute;
+    display: block;
+    top: 50px;
+    width: 0px;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    transition: .4s ease;
+}
+
+.li5:hover ::after {
+    width: 60px;
+}
+
+
+/* -------------Menu déroulant lorsque l'ecran devient plus petit -----------*/
+.menu {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 40px;
+    padding-top: 5.5px;
+    padding-bottom: 5.5px;
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .6s ease-in-out;
+}
+
+
+.menu .bar:nth-child(2) {
+    margin-top: 5.5px;
+    margin-bottom: 5.5px;
+}
+
+/*-------------------------- Taille de l'ecran inférieur a 900px -------------------- */
+@media screen and (max-width:900px) {
+
+    h1 {
+        display: block;
+    }
+
+    .menu{
+        display: block;
+    }
+
+    .menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu.active .bar:nth-child(1) {
+        transform: translateY(8.2px) rotate(45deg);
+    }
+
+    .menu.active .bar:nth-child(3) {
+        transform: translateY(-8.2px) rotate(-45deg);
+    }
+
+    .navBar {
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.67);
+        width: 200px;
+        height: 100%;
+        top: 80px;
+        right: -200px;
+        transition: right .6s ease;
+        transition: opacity .6s ease;
+        opacity: 0;
+    }
+    .navBar.active {
+        right: 0;
+        opacity: 1;
+    }
+
+    .navBar ul {
+        width: 100%;
+        position: relative;
+        flex-direction: column;
+        padding-top: 80px;
+        padding-right: 0;
+        height: 300px;
+
+    }
+
+    .navBar ul li {
+        margin-bottom: 10px;
+    }
+
+
+    .ligne:nth-child(1) a::after {
+        top: 78px;
+    }
+
+    .ligne:nth-child(2) a::after {
+        top: 124px;
+    }
+
+    .ligne:nth-child(3) a::after {
+        top: 167px;
+    }
+
+    .ligne:nth-child(4) a::after {
+        top: 212px;
+    }
+
+    .li5 {
+        margin-top: 50px;
+        font-size: 1.2rem;
+    }
+
+    .li5 a::after {
+        top: 312px;
+    }
+
+    .li5 a:hover::after {
+        width: 120px;
+    }
+
+}
+@media screen and (max-width:520px) {
+    h1 {
+        font-size: 0.9rem;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+        margin-left: 20px;
+    }
+
+    .menu {
+        right: 20px;
+    }
+
+    .navBar {
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.67);
+        width: 100%;
+        height: 240px;
+        top: -240px;
+        right: 0;
+        opacity: 0;
+        transition: top .6s ease;
+        transition: opacity .6s ease-in-out;
+    } 
+
+    .navBar.slide-top {
+        top: 80px;
+        opacity: 1;
+    }
+
+    .navBar ul {
+        padding-top: 10px;
+        height: 200px;
+    }
+
+    .navBar ul li {
+     margin-bottom: 0;
+    }
+
+    .navBar ul li a {
+        font-size: 0.8rem;
+    }
+
+    .ligne:nth-child(1) a::after {
+        top: 38px;
+    }
+
+    .ligne:nth-child(2) a::after {
+        top: 74px;
+    }
+
+    .ligne:nth-child(3) a::after {
+        top: 110px;
+    }
+
+    .ligne:nth-child(4) a::after {
+        top: 146px;
+    }
+/*-----------------------------------*/
+
+    .ligne:nth-child(1) a:hover::after {
+        top: 38px;
+        width: 42px;
+    }
+
+    .ligne:nth-child(2) a:hover::after {
+        top: 74px;
+        width: 68px;
+    }
+
+    .ligne:nth-child(3) a:hover::after {
+        top: 110px;
+        width: 50px;
+    }
+
+    .ligne:nth-child(4) a:hover::after {
+        top: 146px;
+        width: 62px;
+    }
+
+    .li5 {
+        margin-top: 10px;
+        font-size: 1rem;
+    }
+
+    .li5 a::after {
+        top: 194px;
+    }
+
+    .li5 a:hover::after {
+        width: 80px;
+    }
+}
+
+@media screen and (max-width:340px) {
+    h1 {
+        font-size: 0.8rem;
+        margin-left: 6px;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+
+}
+/* --------------------------Fin de la Partie NavBar ------------------------------*/
+/* -------------------------------------------------------------------------------------------------*/
+
+/* -------------Partie Header de la page-----------------*/
+
+header {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    padding-top: 9vh;
+    background-image: url(images-acceuil/fond3.png);
+    /* background-color: rgb(0, 0, 0);  */
+    background-size: cover;
+}
+
+.container {
+    height: 91vh;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+}
+
+.left {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.contact {
+    height: 50%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20px;
+    border-radius: 10px;
+    /* box-shadow: 0 0 2px white,
+    0 0 3px white,
+    0 0 4px white,
+    0 0 6px white; */
+}
+
+.contact h2 {
+    font-family: 'Yantramanav', sans-serif;
+    color: white;
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-top {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    padding-left: 40px;
+    justify-content: flex-start;
+}
+
+.details {
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    font-family: 'Martel Sans', sans-serif;
+}
+
+#prenom {
+    height: 30px;
+    width: 160px;
+    margin-left: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    color: black;
+    padding-left: 8px;
+    box-shadow: 0 0 1px white,
+    0 0 2px white,
+    0 0 3px black,
+    0 0 4px black;
+}
+
+
+
+#prenom::placeholder {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.input:nth-child(2) {
+    margin-left: 40px;
+}
+
+#nom {
+    height: 30px;
+    width: 160px;
+    margin-left: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    color: black;
+    padding-left: 8px;
+    box-shadow: 0 0 1px white,
+    0 0 2px white,
+    0 0 3px black,
+    0 0 4px black
+}
+
+#nom::placeholder {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.message {
+    display: flex;
+    width: 100%;
+    height: 80%;
+    margin-top: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+textarea {
+    margin-left: 20px;
+    font-family: 'Martel', sans-serif;
+    margin-top: 10px;
+    width: 90%;
+    height: 90%;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 2px white,
+    0 0 3px white,
+    0 0 4px white,
+    0 0 6px white;
+}
+
+#messageContact {
+    font-family: 'Martel', sans-serif;
+    font-size: 1rem;
+    padding: 20px;
+}
+
+
+
+.details-message {
+    color: rgb(255, 255, 255);
+    font-size: 1.1rem;
+    font-family: 'Martel Sans', sans-serif;
+}
+
+.submit {
+    width: 100%;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 14px;
+}
+
+.submit button {
+    width: 75px;
+    height: 28px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: none;
+    transition: .4s ease;
+    cursor: pointer
+}
+
+.submit button:hover {
+    box-shadow: 0 0 2px white,
+    0 0 3px white,
+    0 0 4px white,
+    0 0 6px white;
+}
+
+.media {
+    height: 20%;
+    width: 50%;
+    margin-top: 40px;
+}
+
+.media h2 {
+    font-family: 'Yantramanav', sans-serif;
+    color: white;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.icon {
+    width: 100%;
+    display: flex;
+    flex-direction: rox;
+    justify-content: space-evenly;
+    margin-top: 40px;
+}
+
+.logo-insta {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 14px;
+    box-shadow: 0 0 2px white,
+    0 0 3px white,
+    0 0 4px white,
+    0 0 6px white;
+    transition: .4s ease;
+}
+
+.logo-insta:hover {
+    background-color: white;
+}
+
+.logo-facebook {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 14px;
+    box-shadow: 0 0 2px white,
+    0 0 3px white,
+    0 0 4px white,
+    0 0 6px white;
+    transition: .4s ease;
+}
+
+.logo-facebook:hover {
+    background-color: white;
+}
+
+.logo-twitter {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 14px;
+    box-shadow: 0 0 2px white,
+    0 0 3px white,
+    0 0 4px white,
+    0 0 6px white;
+    transition: .4s ease;
+}
+
+.logo-twitter:hover {
+    background-color: white;
+}
+
+.droite {
+    width: 30%;
+    height: 100%;
+    /* border: 2px solid black; */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    /* box-shadow: 0 0 2px white,
+    0 0 3px white,
+    0 0 4px white,
+    0 0 6px white; */
+}
+
+.droite h2 {
+    font-family: 'Yantramanav', sans-serif;
+    color: white;
+    font-size: 1.4rem;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.question {
+    width: 100%;
+    height: 16%;
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.question h3 {
+    color: white;
+    margin-bottom: 5px;
+}
+
+.question p {
+    color: white;
+    font-size: 0.9rem;
+}
+
+

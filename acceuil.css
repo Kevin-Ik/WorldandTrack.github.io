@@ -1,0 +1,1171 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Martel Sans', sans-serif;
+     text-align: center;
+     
+}
+/* --------------- Fin des Paramètres de bases CSS */
+/*----------------------------------------------------------------------------------*/
+
+
+/* ----------Partie navigation fichier navBar.js  -----------*/
+nav {
+    font-family: 'Martel Sans', sans-serif;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.67);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: .6s ease;
+
+}
+
+
+ h1 {
+    font-family: 'Play', sans-serif;
+    margin-left: 20px;
+    letter-spacing: 2px;
+    color: white;
+    display: none;
+    text-shadow:  0 0 1px black,
+    0 0 2px black;
+}
+
+h1 span{
+    color: red;
+    font-size: 2rem;
+    text-shadow: 0 0 1px black,
+    0 0 2px black;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    margin-left: 40px;
+}
+
+/* ------------------Lien de Navigation (Acceuil, Resevation, contact, about us, se connecter) -------------*/
+.navBar {
+    width: 100%;
+    /* margin-top: 10px; */
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.navBar ul {
+    width: 700px;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-right: 40px;
+    
+}
+
+.navBar ul li {
+    /* margin-right: 20px; */
+    padding-top: 6px;
+    color: white;
+    text-align: center;
+}
+
+
+.navBar ul li a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.777);
+    transition: .4s ease;
+
+}
+
+.navBar ul .li5 a{
+    color: white;
+    font-weight: bold;
+}
+
+.ligne a::after {
+    content : '';
+    position: absolute;
+    display: block;
+    width: 0;
+    top: 50px;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    transition: .4s ease;
+}
+
+.ligne:nth-child(1) a:hover::after {
+    width: 35px;
+}
+
+.ligne:nth-child(2) a:hover::after {
+    width: 50px;
+}
+
+.ligne:nth-child(3) a:hover::after {
+    width: 40px;
+}
+
+.ligne:nth-child(4) a:hover::after {
+    width: 45px;
+}
+
+
+.ligne a:hover {
+    color: rgb(255, 255, 255);
+}
+
+.li5 a::after {
+    content : '';
+    position: absolute;
+    display: block;
+    top: 50px;
+    width: 0px;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    transition: .4s ease;
+}
+
+.li5:hover ::after {
+    width: 60px;
+}
+
+
+/* -------------Menu déroulant lorsque l'ecran devient plus petit -----------*/
+.menu {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 40px;
+    padding-top: 5.5px;
+    padding-bottom: 5.5px;
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .6s ease-in-out;
+}
+
+
+.menu .bar:nth-child(2) {
+    margin-top: 5.5px;
+    margin-bottom: 5.5px;
+}
+
+/*-------------------------- Taille de l'ecran inférieur a 900px -------------------- */
+@media screen and (max-width:900px) {
+
+    h1 {
+        display: block;
+    }
+
+    .menu{
+        display: block;
+    }
+
+    .menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu.active .bar:nth-child(1) {
+        transform: translateY(8.2px) rotate(45deg);
+    }
+
+    .menu.active .bar:nth-child(3) {
+        transform: translateY(-8.2px) rotate(-45deg);
+    }
+
+    .navBar {
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.67);
+        width: 200px;
+        height: 100%;
+        top: 80px;
+        right: -200px;
+        transition: right .6s ease;
+        transition: opacity .6s ease;
+        opacity: 0;
+    }
+    .navBar.active {
+        right: 0;
+        opacity: 1;
+    }
+
+    .navBar ul {
+        width: 100%;
+        position: relative;
+        flex-direction: column;
+        padding-top: 80px;
+        padding-right: 0;
+        height: 300px;
+
+    }
+
+    .navBar ul li {
+        margin-bottom: 10px;
+    }
+
+
+    .ligne:nth-child(1) a::after {
+        top: 78px;
+    }
+
+    .ligne:nth-child(2) a::after {
+        top: 124px;
+    }
+
+    .ligne:nth-child(3) a::after {
+        top: 167px;
+    }
+
+    .ligne:nth-child(4) a::after {
+        top: 212px;
+    }
+
+    .li5 {
+        margin-top: 50px;
+        font-size: 1.2rem;
+    }
+
+    .li5 a::after {
+        top: 312px;
+    }
+
+    .li5 a:hover::after {
+        width: 120px;
+    }
+
+}
+@media screen and (max-width:520px) {
+    h1 {
+        font-size: 0.9rem;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+        margin-left: 20px;
+    }
+
+    .menu {
+        right: 20px;
+    }
+
+    .navBar {
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.67);
+        width: 100%;
+        height: 240px;
+        top: -240px;
+        right: 0;
+        opacity: 0;
+        transition: top .6s ease;
+        transition: opacity .6s ease-in-out;
+    } 
+
+    .navBar.slide-top {
+        top: 80px;
+        opacity: 1;
+    }
+
+    .navBar ul {
+        padding-top: 10px;
+        height: 200px;
+    }
+
+    .navBar ul li {
+     margin-bottom: 0;
+    }
+
+    .navBar ul li a {
+        font-size: 0.8rem;
+    }
+
+    .ligne:nth-child(1) a::after {
+        top: 38px;
+    }
+
+    .ligne:nth-child(2) a::after {
+        top: 74px;
+    }
+
+    .ligne:nth-child(3) a::after {
+        top: 110px;
+    }
+
+    .ligne:nth-child(4) a::after {
+        top: 146px;
+    }
+/*-----------------------------------*/
+
+    .ligne:nth-child(1) a:hover::after {
+        top: 38px;
+        width: 42px;
+    }
+
+    .ligne:nth-child(2) a:hover::after {
+        top: 74px;
+        width: 68px;
+    }
+
+    .ligne:nth-child(3) a:hover::after {
+        top: 110px;
+        width: 50px;
+    }
+
+    .ligne:nth-child(4) a:hover::after {
+        top: 146px;
+        width: 62px;
+    }
+
+    .li5 {
+        margin-top: 10px;
+        font-size: 1rem;
+    }
+
+    .li5 a::after {
+        top: 194px;
+    }
+
+    .li5 a:hover::after {
+        width: 80px;
+    }
+}
+
+@media screen and (max-width:340px) {
+    h1 {
+        font-size: 0.8rem;
+        margin-left: 6px;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+
+}
+/* --------------------------Fin de la Partie NavBar ------------------------------*/
+/* -------------------------------------------------------------------------------------------------*/
+
+
+/* ----------------- Partie page d'acceuil avec Fond 3d et la fleche ----------------*/
+header {
+    height: 100vh;
+    width: 100%;
+    background-image: url(images-acceuil/fond1.png);
+    background-size: cover;
+}
+
+.fleche {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 88%;
+    left: 49%;
+    animation-name: float;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes float {
+    0% {
+        top: 88%;
+    }
+    50% {
+        top: 92%;
+    }
+
+    
+}
+
+@media screen and (max-width:1260px) {
+    header {
+        background-image: url(images-acceuil/fond-1-petit.png);
+        background-size: cover;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .fleche {
+        width: 30px;
+        height: 30px;
+        left: 47%;
+    }
+}
+
+
+/* ---------------------Fin de la Partie page d'acceuil --------------------------------*/
+/*------------------------------------------------------------------------------------------------------*/
+
+
+/* ------------------------ Partie  2eme Page Avec les liens Resa Motos et Voitures -----------*/
+.box {
+    height: 100vh;
+    width: 100%;
+    background-image: url(images-acceuil/fond2.JPG);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-sizing: border-box;
+}
+
+.moto {
+    
+    padding-top: 40px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.moto:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: 1s ease-in-out;
+}
+
+.moto:hover h2 {
+    opacity: 1;
+}
+
+.moto:hover .img {
+    opacity: 1;
+}
+
+
+.voiture {
+    
+    padding-top: 40px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.voiture:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: 1s ease-in-out;
+}
+
+.voiture:hover h2 {
+    opacity: 1;
+}
+
+.voiture:hover .img {
+    opacity: 1;
+}
+
+h2 {
+    font-family: 'Yantramanav', sans-serif;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 2rem;
+    transition: 1s ease;
+    opacity: 0;
+}
+
+.img {
+    width: 100px;
+    height: 100px;
+    margin-top: 40px;
+    transition: 1s ease;
+    opacity: 0;
+}
+
+/*------------- Taille ecran 900px -----------*/
+@media screen and (max-width:900px) {
+
+    h2 {
+        font-size: 1.4rem;
+        transition: .6s ease;
+        color: black;
+    }
+
+    .box {
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        box-sizing: border-box;
+        grid-template-columns: 1fr;
+    }
+
+    .moto {
+        width: 100%;
+        height: 100%;
+    }
+
+    .voiture {
+        width: 100%;
+        height: 100%;
+    }
+
+}
+
+@media screen and (max-width:580px) {
+
+    .img {
+        width: 50px;
+        height: 50px;
+    }
+}
+/* --------------------------- Fin de la Partie 2 ----------------------------- */
+/*----------------------------------------------------------------------------------------------*/
+
+
+/*--------------Partie 3 avec quelques actus ou autres---------------*/
+.container {
+    width: 100%;
+    height: 100vh;
+    font-family: 'Martel Sans', sans-serif;
+    background-image: url(images-acceuil/fond3.png);
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+h3 {
+    font-family: 'Yantramanav', sans-serif;
+    position: absolute;
+    top: 205vh;
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.722);
+    text-shadow: 0 0 1px white;
+}
+
+.moteur-2 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+}
+.container-boite-1 {
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(255, 255, 255, 0.164);
+    border-radius: 20px;
+    box-shadow: 0 0 1px white,
+    0 0 2px white,
+    0 0 3px black,
+    0 0 4px black,
+    0 0 5px black,
+    0 0 6px black;
+    cursor: pointer;
+
+}
+
+.container-boite-1 h4 {
+    font-family: 'Yantramanav', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+}
+
+.container-boite-1 ul {
+    list-style: none;
+}
+
+.container-boite-1 ul li {
+    position:relative;
+    text-decoration: none;
+    margin-bottom: 40px;
+}
+
+.fl-droite {
+    position: relative;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+.container-boite-1 ul li a {
+    color: rgba(255, 255, 255, 0.77);
+    text-decoration: none;
+    transition: 1s ease;
+    font-weight: 300;
+}
+
+.container-boite-1 ul li a:hover {
+    color: white;
+}
+
+
+.ligne-2:nth-child(1) a::after {
+    content : '';
+    position: absolute;
+    left: 88px;
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    transition: 1s ease;
+}
+
+.ligne-2:nth-child(1) a:hover::after {
+    width: 110px;
+    height: 2px;
+}
+
+.ligne-2:nth-child(2) a::after {
+    content : '';
+    position: absolute;
+    left: 78px;
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    transition: 1s ease;
+}
+
+.ligne-2:nth-child(2) a:hover::after {
+    width: 134px;
+    height: 2px;
+}
+
+.ligne-2:nth-child(3) a::after {
+    content : '';
+    position: absolute;
+    left: 20px;
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    transition: 1s ease;
+}
+
+.ligne-2:nth-child(3) a:hover::after {
+    width: 250px;
+    height: 2px;
+}
+
+.ligne-2:nth-child(4) a::after {
+    content : '';
+    position: absolute;
+    left: 2px;
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    transition: 1s ease;
+}
+
+.ligne-2:nth-child(4) a:hover::after {
+    width: 286px;
+    height: 2px;
+}
+
+
+.moteur {
+    width: 80px;
+    height: 80px;
+}
+
+.container-boite-2 {
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.container-petite-1 {
+    
+    width: 400px;
+    height: 200px;
+    padding-top: 20px;
+    background: linear-gradient(rgba(255, 255, 255, 0.611), rgba(0, 0, 0, 0.71)), url(images-acceuil/moto.jpg);
+    background-size: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 1px white,
+    0 0 2px white,
+    0 0 3px black,
+    0 0 4px black,
+    0 0 5px black,
+    0 0 6px black;
+    cursor: pointer;
+    transition: 1.5s ease;
+}
+
+.container-petite-2 {
+    width: 400px;
+    height: 200px;
+    padding-top: 20px;
+    background: linear-gradient(rgba(255, 255, 255, 0.611), rgba(0, 0, 0, 0.71)), url(images-acceuil/voiture.jpg) ;
+    background-size: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 1px white,
+    0 0 2px white,
+    0 0 3px black,
+    0 0 4px black,
+    0 0 5px black,
+    0 0 6px black;
+    cursor: pointer;
+    transition: 1.5s ease;
+}
+
+.img-2 {
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+    transition: 1s ease;
+}
+
+h5 {
+    font-family: 'Yantramanav', sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    transition: .6s ease;
+}
+
+.container-petite-1:hover {
+    background: rgba(255, 255, 255, 0.836);
+}
+
+.container-petite-2:hover {
+    background: rgba(255, 255, 255, 0.836);
+    
+}
+
+.container-petite-1:hover .img-2{
+    opacity: 1;
+}
+
+.container-petite-2:hover .img-2 {
+    opacity: 1;
+}
+
+.container-petite-1:hover h5 {
+    color: rgb(0, 0, 0);
+    text-shadow: none;
+}
+
+.container-petite-2:hover h5 {
+    color: rgb(0, 0, 0);
+    text-shadow: none;
+}
+
+/* --------- Modification Partie 3 image qui disparais quand l'ecran < 1200px -------*/
+@media screen and (max-width:1200px){
+    .moteur-2 {
+     display: none;
+    }
+}
+
+/*----------- Modification de la Partie 3 page taille ecran < 900px ---------*/
+@media screen and (max-width:900px) {
+    .container {
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+h3 {
+    font-size: 1.2rem;
+}
+
+    .container-boite-1 {
+        height: 500px;
+        width: 300px;
+        justify-content: space-evenly;
+    }
+
+
+    .container-boite-1 h4 {
+        font-size: 1.2rem;
+    }
+
+    .container-boite-1 ul li {
+        margin-bottom: 10px;
+    }
+
+    .container-boite-1 ul li a{
+        font-size: .8rem;
+    }
+
+    .ligne-2:nth-child(1) a::after {
+        left: 72px;
+        top: 25px;
+        height: 2px;
+    }
+
+    .ligne-2:nth-child(1) a:hover::after {
+        width: 90px;
+        height: 2px;
+    }
+
+    .ligne-2:nth-child(2) a::after {
+        left: 62px;
+        top: 25px;
+        height: 2px;
+    }
+
+    .ligne-2:nth-child(2) a:hover::after {
+        width: 108px;
+        height: 2px;
+    }
+
+    .ligne-2:nth-child(3) a::after {
+        left: 20px;
+        top: 25px;
+        height: 2px;
+    }
+
+    .ligne-2:nth-child(3) a:hover::after {
+        width: 192px;
+        height: 2px;
+    }
+
+    .ligne-2:nth-child(4) a::after {
+        left: 2px;
+        top: 25px;
+        height: 2px;
+    }
+
+    .ligne-2:nth-child(4) a:hover::after {
+        width: 226px;
+        height: 2px;
+    }
+
+    .container-boite-2 {
+        height: 500px;
+        width: 300px;
+    }
+
+    .container-petite-1 {
+        height: 200px;
+        width: 300px;
+    }
+
+    .container-petite-2 {
+        height: 200px;
+        width: 300px;
+    }
+
+}
+
+@media screen and (max-width:700px) {
+    .container {
+        flex-direction: column;
+        justify-content: center;
+        border: 4px black;
+    }
+
+    h3 {
+        top: 200vh;
+        font-size: 1rem;
+    }
+
+    .container-boite-1 {
+        margin-bottom: 10px;
+        height: 180px;
+        width: 360px;
+    }
+
+    .container-boite-1 h4 {
+        font-size: .9rem;
+    }
+
+    .container-boite-1 ul li {
+        margin-bottom: 0;
+    }
+
+    .moteur {
+        width: 40px;
+        height: 40px;
+    }
+
+    .container-boite-2 {
+        width: 300px;
+        height: 360px;
+    }
+
+    .container-petite-1 {
+        height: 160px;
+    }
+
+    .container-petite-2 {
+        height: 160px;
+    }
+}
+
+@media screen and (max-width:580px) {
+
+    h3 {
+        font-size: 0.8rem;
+        top: 204vh;
+        width:200px;
+    }
+
+    .container-boite-1 {
+        height: 300px;
+        width: 260px;
+        margin-top: 70px;
+    }
+
+    .container-boite-1 ul li a{
+        font-size: 0.7rem;
+    }
+
+    .ligne-2:nth-child(1) a::after {
+        left: 61px;
+        top: 25px;
+        height: 1px;
+    }
+
+    .ligne-2:nth-child(1) a:hover::after {
+        width: 80px;
+        height: 1px;
+    }
+
+    .ligne-2:nth-child(2) a::after {
+        left: 53px;
+        top: 25px;
+        height: 1px;
+    }
+
+    .ligne-2:nth-child(2) a:hover::after {
+        width: 94px;
+        height: 1px;
+    }
+
+    .ligne-2:nth-child(3) a::after {
+        left: 15px;
+        top: 25px;
+        height: 1px;
+    }
+
+    .ligne-2:nth-child(3) a:hover::after {
+        width: 172px;
+        height: 1px;
+    }
+
+    .ligne-2:nth-child(4) a::after {
+        left: 2px;
+        top: 25px;
+        height: 1px;
+    }
+
+    .ligne-2:nth-child(4) a:hover::after {
+        width: 198px;
+        height: 1px;
+    }
+
+    .container-boite-2 {
+        height: 250px;
+        width: 400px;
+        flex-direction: row;
+        align-items: space-evenly;
+    }
+
+    .container-petite-1 {
+        height: 150px;
+        width: 180px;
+    }
+
+    .container-petite-1 h5 {
+        font-size: 1rem;
+    }
+
+    .container-petite-2 {
+        height: 150px;
+        width: 180px;
+    }
+
+    .container-petite-2 h5 {
+        font-size: 1rem;
+    }
+
+    .img-2 {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media screen and (max-width:420px) {
+    .container {
+        justify-content: space-around;
+        padding-top: 60px;
+    }
+
+    .container-boite-1 {
+        height: 300px;
+        margin-top: 30px;
+    }
+
+    .container-boite-2 {
+        width: 300px;
+    }
+
+    .container-petite-1 {
+        width: 140px;
+        height: 120px;;
+    }
+
+    .container-petite-2 {
+        width: 140px;
+        height: 120px;
+    }
+
+    @media screen and (max-width:300px) {
+
+        h3 {
+            font-size: 0.7rem;
+            box-shadow: none;
+        }
+
+        .container-boite-1 {
+            width: 240px;
+        }
+    }
+}
+/* ---------------------------- Fin de la Partie 3 --------------------------- */
+/*-------------------------------------------------------------------------------------------------*/
+
+
+/* --------------------------Partie Footer Conditions Generals / Liens Insta, Facebook , etc -------*/
+footer {
+    position: absolute;
+    top: 290vh;
+    height: 10vh;
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: rgba(0, 0, 0, 0.67);
+    transition: 1s ease;
+}
+
+
+.icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.icon ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon ul li:nth-child(2) {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.icons {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.condition {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    font-family: 'Martel Sans', sans-serif;
+    color: white;
+    font-size: 0.8rem;
+
+}
+
+.autre p {
+    font-family: 'Martel Sans', sans-serif;
+    color: white;
+    font-size: 0.6rem;
+
+}
+
+.rocket {
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+}
+
+/* ------------Modif du Footer Ecran < 900px ------------- */
+@media screen and (max-width:900px) {
+    p {
+        font-size: 0.6rem;
+    }
+
+    .autre p {
+        font-size: 0.4rem;
+    }
+
+    .icons {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width:700px) {
+
+    footer {
+        height: 8vh;
+        top: 292vh;
+    }
+    p {
+        font-size: 0.4rem;
+    }
+}
+
+@media screen and (max-width:520px) {
+    
+    .icons {
+        width: 24px;
+        height: 24px;
+        border-radius: 2px;
+
+    }
+
+    .rocket {
+        margin-top: 2px;
+        width: 15px;
+        height: 15px;
+    }
+}
+
+@media screen and (max-width:420px) {
+    p {
+        font-size: 0.3rem;
+    }
+
+    .autre p {
+        font-size: 0.2rem;
+    }
+}
+
+
+
