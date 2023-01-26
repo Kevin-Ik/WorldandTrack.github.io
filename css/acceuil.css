@@ -368,7 +368,7 @@ h1 span{
 header {
     height: 100vh;
     width: 100%;
-    background-image: url(images-acceuil/fond1.png);
+    background-image: url(/images-acceuil/fond1.png);
     background-size: cover;
 }
 
@@ -396,7 +396,7 @@ header {
 
 @media screen and (max-width:1260px) {
     header {
-        background-image: url(images-acceuil/fond-1-petit.png);
+        background-image: url(/images-acceuil/fond-1-petit.png);
         background-size: cover;
     }
 }
@@ -418,7 +418,7 @@ header {
 .box {
     height: 100vh;
     width: 100%;
-    background-image: url(images-acceuil/fond2.JPG);
+    background-image: url(/images-acceuil/fond2.JPG);
     background-size: cover;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -534,7 +534,7 @@ h2 {
     width: 100%;
     height: 100vh;
     font-family: 'Martel Sans', sans-serif;
-    background-image: url(images-acceuil/fond3.png);
+    background-image: url(/images-acceuil/fond3.png);
     background-size: cover;
     display: flex;
     flex-direction: row;
